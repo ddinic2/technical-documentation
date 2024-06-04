@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "technical-documentation-client-side-solution",
+    "id": "ba63177e-4cea-4de6-bd60-5f4918c99d8d",
+    "version": "1.0.0.1",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "technical-documentation description"
+      },
+      "longDescription": {
+        "default": "technical-documentation description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "technical-documentation Feature",
+        "description": "The feature that activates elements of the technical-documentation solution.",
+        "id": "b3694505-7c70-452c-8d10-c8a912334ad0",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/technical-documentation.sppkg"
+  }
+}

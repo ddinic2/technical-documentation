@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "technical-documentation-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/technicalDocumentation/TechnicalDocumentationWebPart.js",
+          "manifest": "./src/webparts/technicalDocumentation/TechnicalDocumentationWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TechnicalDocumentationWebPartStrings": "lib/webparts/technicalDocumentation/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
