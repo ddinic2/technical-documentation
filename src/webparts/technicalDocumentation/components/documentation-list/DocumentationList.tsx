@@ -117,7 +117,10 @@ const DocumentationList = ({ items, documentCategoryOptions, revisionOptions, pr
 
     return (
         <>
-            <div className="row">
+            <div className="row searchBackround pb-1">
+                <div className="col-3 mb-1">
+                    <TextField label="Search:" onChange={(ev, val) => setFreeText(val)} />
+                </div>
                 <div className="col-3 mb-1">
                     <ComboBox
                         label="View by Products:"
@@ -147,7 +150,7 @@ const DocumentationList = ({ items, documentCategoryOptions, revisionOptions, pr
                         multiSelect={true}
                         autoComplete="on"
                     /> */}
-                     <ComboBox
+                    <ComboBox
                         label="View by Revision:"
                         options={revisionOptions}
                         onChange={(e, v) => setRev(v)}
@@ -156,9 +159,7 @@ const DocumentationList = ({ items, documentCategoryOptions, revisionOptions, pr
                         autoComplete="on"
                     />
                 </div>
-                <div className="col-3 mb-1">
-                    <TextField label="Search:" onChange={(ev, val) => setFreeText(val)} />
-                </div>
+
             </div>
             <div className="row">
                 <div className="col-12">

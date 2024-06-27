@@ -21,7 +21,8 @@ import { DocumentModel } from "../models/DocumentModel";
 
 
 class Service {
-    sp = spfi("https://landisgyr.sharepoint.com/sites/Ext-WS-AMTechnicalDocumenation/").using(SPBrowser());
+    //sp = spfi("https://landisgyr.sharepoint.com/sites/Ext-WS-AMTechnicalDocumenation/").using(SPBrowser());
+    sp = spfi("https://landisgyr.sharepoint.com/sites/Ext-WS-AMTechnicalDocumentation/").using(SPBrowser());
     constructor() { }
 
     getManagedMetadataTerms = async () => {

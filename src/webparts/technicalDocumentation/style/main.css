@@ -1,0 +1,16 @@
+.searchBackround {
+    background-color: #4d4e53;
+
+}
+
+.searchBackround label {
+    color: white;
+}
+
+.row .ms-DetailsHeader-cell {
+    width: 25% !important;
+}
+
+.row .ms-DetailsRow-cell {
+    flex: 1;
+}

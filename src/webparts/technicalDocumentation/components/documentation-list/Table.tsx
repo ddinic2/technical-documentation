@@ -1,6 +1,7 @@
 import * as React from 'react'
 // import { useTable } from 'react-table'
 import { ListView, IViewField, SelectionMode } from "@pnp/spfx-controls-react/lib/ListView";
+import { Icon } from 'office-ui-fabric-react';
 // A great library for fuzzy filtering/sorting items
 // import { matchSorter } from 'match-sorter'
 
@@ -85,44 +86,66 @@ const Table = ({ data }: any) => {
 
     let viewFields: IViewField[] = [
         {
-          name: "Title",
-          displayName: 'Title',
-          isResizable: true,
-          sorting: true,
-          minWidth: 180,
-          maxWidth: 200,
-          render: (item) => (
-            <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip', }}>
-              {item.Title}
-            </div>
-          ),
+            name: "Title",
+            displayName: 'Title',
+            isResizable: true,
+            sorting: true,
+            //   minWidth: 180,
+            //   maxWidth: 200,
+            minWidth: 150,
+            render: (item) => {
+                
+                const getOnlineEditUrl = (fileRef:any) => {
+                    const encodedFileRef = encodeURIComponent(fileRef);
+                    if (fileRef.endsWith('.docx') || fileRef.endsWith('.doc')) {
+                      return `/sites/Ext-WS-AMTechnicalDocumenation/_layouts/15/WopiFrame.aspx?sourcedoc=${encodedFileRef}&action=edit`;
+                    } else if (fileRef.endsWith('.xlsx') || fileRef.endsWith('.xls')) {
+                      return `/sites/Ext-WS-AMTechnicalDocumenation/_layouts/15/xlviewer.aspx?id=${encodedFileRef}&action=edit`;
+                    } else if (fileRef.endsWith('.pptx') || fileRef.endsWith('.ppt')) {
+                      return `/sites/Ext-WS-AMTechnicalDocumenation/_layouts/15/WopiFrame.aspx?sourcedoc=${encodedFileRef}&action=edit`;
+                    } else {
+                      return fileRef; // Default case, open directly
+                    }
+                  };
+          
+                  const editUrl = getOnlineEditUrl(item.FileRef);
+
+                return (
+
+                
+                <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip', }}>
+                    <a href={editUrl} target='_blanc'>{item.Title}</a>
+                </div>
+            )},
         },
         {
             name: "Product",
             displayName: 'Product',
             isResizable: true,
             sorting: true,
+            // minWidth: 150,
+            // maxWidth: 180,
             minWidth: 150,
-            maxWidth: 180,
             render: (item) => (
                 <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip' }}>
-                  {item.Product}
+                    {item.Product}
                 </div>
-              ),
-          },
-          {
+            ),
+        },
+        {
             name: "Document_x0020_Category",
             displayName: 'Document category',
             isResizable: true,
             sorting: true,
-            minWidth: 100,
-            maxWidth: 130,
+            // minWidth: 100,
+            // maxWidth: 130,
+            minWidth: 150,
             render: (item) => (
                 <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip' }}>
-                  {item.Document_x0020_Category}
+                    {item.Document_x0020_Category}
                 </div>
-              ),
-          },
+            ),
+        },
         //   {
         //     name: "Document_x0020_Language",
         //     displayName: 'Language',
@@ -141,15 +164,19 @@ const Table = ({ data }: any) => {
             displayName: 'Revision',
             isResizable: true,
             sorting: true,
-            minWidth: 80,
-            maxWidth: 130,
+            // minWidth: 80,
+            // maxWidth: 130,
+            minWidth: 150,
             render: (item) => (
                 <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip' }}>
-                  {item.Revision}
+                    {item.Revision}
+                    <a href={item.FileRef} target="_blank" rel="noopener noreferrer" download>
+                        <Icon iconName="Download" style={{ fontSize: 15, float: 'right', cursor: 'pointer' }} />
+                    </a>
                 </div>
-              ),
-          },
-      ];
+            ),
+        },
+    ];
 
     // Render the UI for your table
     return (
@@ -215,7 +242,7 @@ const Table = ({ data }: any) => {
                 viewFields={viewFields}
                 selectionMode={SelectionMode.none}
                 stickyHeader={false}
-              />
+            />
 
         </>
     )

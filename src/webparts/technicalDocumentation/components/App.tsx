@@ -5,6 +5,7 @@ import { ListsData } from '../models/ListData';
 import Loader from './loader/Loader';
 import { DocumentModel } from '../models/DocumentModel';
 import DocumentationList from './documentation-list/DocumentationList';
+import '../style/main.css'
 
 
 const App = ({ context }: any) => {

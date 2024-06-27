@@ -9,6 +9,7 @@ export class DocumentModel {
     Title: string;
     Product: string;
     TaxCatchAll: any;
+    FileRef:any;
     constructor(obj?: DocumentModel) {
         this.Document_x0020_Category = obj ? obj.Document_x0020_Category : '',
             // this.Document_x0020_Language = obj ? this.makeLanguageInRow(obj.Document_x0020_Language) : '',
@@ -16,7 +17,8 @@ export class DocumentModel {
             this.Id = obj ? obj.Id : 0,
             this.ID = obj ? obj.ID : 0,
             this.Title = obj ? obj.Title : '',
-            this.Product = obj ? this.makeProduct(obj.Product, obj.TaxCatchAll) : ''
+            this.Product = obj ? this.makeProduct(obj.Product, obj.TaxCatchAll) : '',
+            this.FileRef = obj ? obj.FileRef: ""
     }
   
     makeLanguageInRow(languages: any[]) {

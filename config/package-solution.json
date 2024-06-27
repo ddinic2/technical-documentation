@@ -3,7 +3,7 @@
   "solution": {
     "name": "technical-documentation-client-side-solution",
     "id": "ba63177e-4cea-4de6-bd60-5f4918c99d8d",
-    "version": "1.0.0.2",
+    "version": "1.0.0.6",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
