@@ -5,7 +5,7 @@
       "name": "Hosted workbench",
       "type": "pwa-chrome",
       "request": "launch",
-      "url": "https://landisgyr.sharepoint.com/sites/Ext-WS-AMTechnicalDocumenation/_layouts/workbench.aspx",
+      "url": "https://landisgyr.sharepoint.com/sites/Ext-WS-AMTechnicalDocumentation/_layouts/workbench.aspx",
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
       "sourceMapPathOverrides": {
