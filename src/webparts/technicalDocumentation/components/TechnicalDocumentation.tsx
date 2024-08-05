@@ -11,11 +11,12 @@ export default class TechnicalDocumentation extends React.Component<ITechnicalDo
       isDarkTheme,
       environmentMessage,
       hasTeamsContext,
-      userDisplayName
+      userDisplayName,
+      user
     } = this.props;
 
     return (
-      <App />
+      <App user={user} />
     );
   }
 }

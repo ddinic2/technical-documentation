@@ -53,11 +53,11 @@ class Service {
                 return el
             }
         })
-        return newArr?.map((e) => {return { key: e, text: e }})
+        return newArr?.map((e) => { return { key: e, text: e } })
     }
 
-    makeDropdownFluentFromTermStore(someArray: any[], mainItems: DocumentModel[], fieldName:string) {
-        const myItemsLanguages = mainItems.map((mi:any) => mi[fieldName]).join(',')
+    makeDropdownFluentFromTermStore(someArray: any[], mainItems: DocumentModel[], fieldName: string) {
+        const myItemsLanguages = mainItems.map((mi: any) => mi[fieldName]).join(',')
         let newArr = someArray.filter((el: any) => {
             if (myItemsLanguages.indexOf(el.defaultLabel) > -1) {
                 return el
@@ -66,8 +66,8 @@ class Service {
         return newArr?.map((el) => { return { key: el.defaultLabel, text: el.defaultLabel } })
     }
 
-    getFieldsFromListAndExpand(listName: string, fields: string, expandColumns: string) {
-        return this.sp.web.lists.getByTitle(listName).items.select(fields).expand(expandColumns).top(5000)()
+    getFieldsFromListAndExpand(listName: string, fields: string, expandColumns: string, sortColumns: string) {
+        return this.sp.web.lists.getByTitle(listName).items.select(fields).expand(expandColumns).orderBy(sortColumns, false).top(5000)()
     }
 
     async getFields() {
@@ -79,6 +79,20 @@ class Service {
         return this.sp.web.lists.getByTitle(listName).fields.getByInternalNameOrTitle(fieldName)()
     }
 
+    async getItemByField(listName: string, field: string, val: number) {
+        return this.sp.web.lists.getByTitle(listName).items.select().filter(`${field} eq '${val}'`)().then(res => {
+            return res
+        })
+    }
+
+    async updateItemInList(listName: string, obj: any) {
+        const list = this.sp.web.lists.getByTitle(listName);
+        return list.items.getById(obj.ID).update(obj);
+      }
+
+      async addItemInList(listName: string, obj: any) {
+        return this.sp.web.lists.getByTitle(listName).items.add(obj);
+      }
 
 }
 

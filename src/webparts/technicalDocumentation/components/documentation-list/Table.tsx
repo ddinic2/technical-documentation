@@ -98,13 +98,13 @@ const Table = ({ data }: any) => {
                 const getOnlineEditUrl = (fileRef: any) => {
                     const encodedFileRef = encodeURIComponent(fileRef);
                     if (fileRef.endsWith('.docx') || fileRef.endsWith('.doc')) {
-                        return `/sites/Ext-WS-AMTechnicalDocumenation/_layouts/15/WopiFrame.aspx?sourcedoc=${encodedFileRef}&action=edit`;
+                        return `/sites/Ext-WS-AMTechnicalDocumentation/_layouts/15/WopiFrame.aspx?sourcedoc=${encodedFileRef}&action=edit`; 
                     } else if (fileRef.endsWith('.xlsx') || fileRef.endsWith('.xls')) {
-                        return `/sites/Ext-WS-AMTechnicalDocumenation/_layouts/15/xlviewer.aspx?id=${encodedFileRef}&action=edit`;
+                        return `/sites/Ext-WS-AMTechnicalDocumentation/_layouts/15/xlviewer.aspx?id=${encodedFileRef}&action=edit`;
                     } else if (fileRef.endsWith('.pptx') || fileRef.endsWith('.ppt')) {
-                        return `/sites/Ext-WS-AMTechnicalDocumenation/_layouts/15/WopiFrame.aspx?sourcedoc=${encodedFileRef}&action=edit`;
+                        return `/sites/Ext-WS-AMTechnicalDocumentation/_layouts/15/WopiFrame.aspx?sourcedoc=${encodedFileRef}&action=edit`;
                     } else {
-                        return fileRef; // Default case, open directly
+                        return fileRef; // Default case, open directly 
                     }
                 };
 
@@ -114,7 +114,7 @@ const Table = ({ data }: any) => {
 
 
                     <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip', }}>
-                        <a href={editUrl} style={{ textDecoration: "none", color: "#86bd21" }} target="_blank">{item.Title}</a>
+                        <a data-interception="off" target="_blank" rel="noopener noreferrer" href={editUrl} style={{ textDecoration: "none", color: "#86bd21" }} >{item.Title}</a>
                     </div>
                 )
             },
@@ -135,7 +135,7 @@ const Table = ({ data }: any) => {
         },
         {
             name: "Document_x0020_Category",
-            displayName: 'Document category',
+            displayName: 'Document Category',
             isResizable: true,
             sorting: true,
             // minWidth: 100,
@@ -161,8 +161,8 @@ const Table = ({ data }: any) => {
         //       ),
         //   },
         {
-            name: "Revision",
-            displayName: 'Revision',
+            name: "DocumentNumber",
+            displayName: 'Document Number',
             isResizable: true,
             sorting: true,
             // minWidth: 80,
@@ -170,8 +170,8 @@ const Table = ({ data }: any) => {
             minWidth: 150,
             render: (item) => (
                 <div style={{ whiteSpace: 'normal', overflow: 'visible', textOverflow: 'clip' }}>
-                    {item.Revision}
-                    <a href={item.FileRef} style={{ textDecoration: "none" }} target="_blank" rel="noopener noreferrer" download>
+                    {item.DocumentNumber}
+                    <a href={item.FileRef} style={{ textDecoration: "none" }} target="_blank" rel="noopener noreferrer" download={item.DocumentNumber + " " + item.Title + ".pdf"}>
                         <Icon iconName="Download" style={{ fontSize: 15, float: 'right', cursor: 'pointer', color: "#86bd21" }} />
                     </a>
                 </div>

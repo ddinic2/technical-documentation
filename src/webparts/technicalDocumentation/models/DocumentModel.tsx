@@ -4,6 +4,7 @@ export class DocumentModel {
     Document_x0020_Category: string;
     // Document_x0020_Language: any;
     Revision: string;
+    DocumentNumber: string;
     Id: number;
     ID: number;
     Title: string;
@@ -14,11 +15,12 @@ export class DocumentModel {
         this.Document_x0020_Category = obj ? obj.Document_x0020_Category : '',
             // this.Document_x0020_Language = obj ? this.makeLanguageInRow(obj.Document_x0020_Language) : '',
             this.Revision = obj? obj.Revision : '',
+            this.DocumentNumber = obj ? obj.DocumentNumber : '',
             this.Id = obj ? obj.Id : 0,
             this.ID = obj ? obj.ID : 0,
             this.Title = obj ? obj.Title : '',
-            this.Product = obj ? this.makeProduct(obj.Product, obj.TaxCatchAll) : '',
-            this.FileRef = obj ? obj.FileRef: ""
+            this.Product = obj ? obj.Product : '',
+            this.FileRef = obj ? obj.FileRef: ''
     }
   
     makeLanguageInRow(languages: any[]) {

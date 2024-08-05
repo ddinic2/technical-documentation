@@ -4,4 +4,5 @@ export interface ITechnicalDocumentationProps {
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
+  user:any;
 }
